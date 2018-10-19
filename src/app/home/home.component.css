@@ -1,0 +1,12 @@
+a:any-link {
+  text-decoration: none;
+  font-size: 4rem;
+  font-weight: 900;
+  background: -webkit-linear-gradient(-45deg, #98f74a 25%, #0887cc 100%);
+  background: -moz-linear-gradient(-45deg, #98f74a 25%, #0887cc 100%);
+  background: linear-gradient(-45deg, #98f74a 25%, #0887cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+
+}

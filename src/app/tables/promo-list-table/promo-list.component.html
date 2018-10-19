@@ -1,0 +1,72 @@
+<div class="table-container">
+  <div class="display-1"><h1>Promotion List</h1></div>
+  <mat-form-field  color="accent">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  <mat-table [dataSource]="dataSource" matSort matSortActive="shipOptionId" matSortDirection="asc" matSortDisableClear>
+
+    <!-- PromoId Column -->
+    <ng-container matColumnDef="promoId">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Promo ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.promoId}} </mat-cell>
+    </ng-container>
+
+    <!-- Promotion Name Column -->
+    <ng-container matColumnDef="promotionName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Promotion Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.promotionName}} </mat-cell>
+    </ng-container>
+
+    <!-- Promo Amount Column -->
+    <ng-container matColumnDef="promoAmt">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.promoAmt}} </mat-cell>
+    </ng-container>
+
+    <!-- Minimum Order Value Column -->
+    <ng-container matColumnDef="minimumOrderValue">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Minimum Order Value </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.minimumOrderValue}} </mat-cell>
+    </ng-container>
+
+    <!-- Order SubTotal Column -->
+    <ng-container matColumnDef="orderSubTotal">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Order Sub Total </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.orderSubTotal}} </mat-cell>
+    </ng-container>
+
+    <!-- Start Promo Date Column -->
+    <ng-container matColumnDef="start">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Start Promo </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.start}} </mat-cell>
+    </ng-container>
+
+    <!-- End Promo Date Column -->
+    <ng-container matColumnDef="end">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> End Promo </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.end}} </mat-cell>
+    </ng-container>
+
+    <!-- Promotion Type Column -->
+    <ng-container matColumnDef="promotionType">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Promotion Type </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.promotionType}} </mat-cell>
+    </ng-container>
+
+    <!-- Loader -->
+    <ng-container matColumnDef="loading">
+      <mat-footer-cell *matFooterCellDef colspan="6"> Loading data...</mat-footer-cell>
+    </ng-container>
+    <ng-container matColumnDef="noData">
+      <mat-footer-cell *matFooterCellDef colspan="6"> Data no found</mat-footer-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hideLoader': dataSource!=null}"></mat-footer-row>
+    <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hideLoader': !(dataSource!=null && dataSource.data.length==0)}"></mat-footer-row>
+
+  </mat-table>
+  <mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+
+</div>

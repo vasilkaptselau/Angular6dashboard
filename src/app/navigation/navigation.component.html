@@ -1,0 +1,13 @@
+<mat-menu #appMenu="matMenu"  color="accent" xPosition="before">
+  <ng-template matMenuContent>
+    <button mat-menu-item><a routerLink="">Home</a></button>
+    <button mat-menu-item><a routerLink="/promo">Promo</a></button>
+    <button mat-menu-item><a routerLink="/inventory">Inventory</a></button>
+    <button mat-menu-item><a routerLink="/addorder">Add Order</a></button>
+    <button mat-menu-item><a routerLink="/shipping">Shipping</a></button>
+  </ng-template>
+
+</mat-menu>
+<button mat-icon-button [matMenuTriggerFor]="appMenu">
+  <mat-icon>more_vert</mat-icon>
+</button>

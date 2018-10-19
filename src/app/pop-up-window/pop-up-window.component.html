@@ -1,0 +1,45 @@
+<mat-card-header>
+  <mat-toolbar class="toolbar" color="accent">
+    <mat-card-title>Student Information</mat-card-title>
+    <span class="toolbar-spacer"></span>
+    <mat-icon (click)="onClick()">cancel</mat-icon>
+  </mat-toolbar>
+</mat-card-header>
+<mat-card-content>
+  <div class="container">
+    <form [formGroup]="newOrderForm" (submit)="onSubmit()">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-4 col-lg-4">
+            <label>MerchantId</label>
+            <input type="text" formControlName="merchantId" class="form-control">
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <label>Quantity Ordered</label>
+            <input type="text" formControlName="qtyOrdered" class="form-control">
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <label>Name</label>
+            <input type="text" formControlName="name" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md- col-lg-4">
+            <label>Description</label>
+            <input type="text" formControlName="description" class="form-control">
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <label>Price</label>
+            <input type="text" formControlName="price" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-12">
+            <button type="submit" class="btn btn-outline-success btn-block mt-4 mb-0"><mat-icon>save</mat-icon></button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</mat-card-content>

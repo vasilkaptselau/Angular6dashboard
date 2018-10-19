@@ -1,0 +1,13 @@
+mat-icon {
+  color: red;
+}
+.mat-icon-button {
+  margin-left: 95%;
+  margin-top: -50px;
+  margin-right: auto;
+  position: absolute;
+}
+a:-webkit-any-link {
+  text-decoration: none;
+  color: #000;
+}

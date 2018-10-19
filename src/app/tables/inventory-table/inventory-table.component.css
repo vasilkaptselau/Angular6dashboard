@@ -1,0 +1,54 @@
+/* Structure */
+.container {
+  position: relative;
+  width: 90%;
+}
+
+.table-container {
+  position: relative;
+  overflow: auto;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.loading-shade {
+  position: absolute;
+  top: -200px;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-header-cell {
+  font-size: 16px;
+  color: black;
+}
+.mat-column-created {
+  max-width: 124px;
+}
+.mat-paginator {
+  max-width: 90%;
+  margin-left: 10%;
+  margin-right: auto;
+}
+.mat-row:nth-child(even){
+  background-color: rgb(219, 219, 219);
+}
+
+.mat-row:nth-child(odd){
+  background-color: rgb(237, 238, 239);
+}
+
+

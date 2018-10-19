@@ -1,0 +1,48 @@
+
+
+<div class="table-container">
+  <div class="display-1"><h1>Shipping List</h1></div>
+  <mat-form-field  color="accent">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+<mat-table [dataSource]="dataSource" matSort matSortActive="shipOptionId" matSortDirection="asc" matSortDisableClear>
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="shipOptionId">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Ship Option Id </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.shipOptionId}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="shipOptionName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Ship Option Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.shipOptionName}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="carrierName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Carrier </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.carrierName}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="shipCost">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Cost </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.shipCost}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="loading">
+    <mat-footer-cell *matFooterCellDef colspan="6"> Loading data...</mat-footer-cell>
+  </ng-container>
+  <ng-container matColumnDef="noData">
+    <mat-footer-cell *matFooterCellDef colspan="6"> Data no found</mat-footer-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hideLoader': dataSource!=null}"></mat-footer-row>
+  <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hideLoader': !(dataSource!=null && dataSource.data.length==0)}"></mat-footer-row>
+
+</mat-table>
+  <mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+
+</div>
